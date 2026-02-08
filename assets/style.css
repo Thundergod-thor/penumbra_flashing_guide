@@ -77,6 +77,35 @@ body::after {
   z-index:1;
 }
 
+/* NAVBAR */
+.navbar {
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(2,4,9,.75);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+}
+
+.navbar .inner {
+  max-width:960px;
+  margin:auto;
+  padding:.8rem 1.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.navbar a {
+  margin-right:1rem;
+  font-size:.9rem;
+  color:var(--muted);
+  text-decoration:none;
+}
+.navbar a:hover {
+  color:var(--accent);
+}
+
 .badges span {
   display:inline-block;
   padding:.25rem .6rem;
@@ -98,7 +127,18 @@ h2 {
   margin:2.5rem 0 1rem;
 }
 
-.subtitle { color:var(--muted); max-width:720px; }
+.subtitle {
+  color:var(--muted);
+  max-width:720px;
+}
+
+pre {
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:1rem;
+  border-radius:8px;
+  overflow-x:auto;
+}
 
 .cards {
   display:grid;
@@ -120,14 +160,6 @@ h2 {
   box-shadow:0 0 22px rgba(0,255,225,.15);
 }
 
-pre {
-  background:var(--card);
-  border:1px solid var(--border);
-  padding:1rem;
-  border-radius:8px;
-  overflow-x:auto;
-}
-
 a {
   color:var(--accent);
   text-decoration:none;
@@ -143,15 +175,30 @@ footer {
   font-size:.85rem;
 }
 
-.cursor::after {
-  content:"_";
-  animation:blink 1.2s infinite;
+/* COPY BUTTON (LINUX ONLY) */
+.copy-wrap {
+  position:relative;
 }
 
-@keyframes blink {
-  50% { opacity:0; }
+.copy-btn {
+  position:absolute;
+  top:.5rem;
+  right:.5rem;
+  font-size:.75rem;
+  padding:.25rem .5rem;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:var(--card);
+  color:var(--muted);
+  cursor:pointer;
 }
 
+.copy-btn:hover {
+  border-color:var(--neon);
+  color:var(--accent);
+}
+
+/* THEME TOGGLE */
 .toggle {
   position:fixed;
   top:1rem;
@@ -160,4 +207,13 @@ footer {
   font-size:.85rem;
   color:var(--muted);
   z-index:5;
+}
+
+.cursor::after {
+  content:"_";
+  animation:blink 1.2s infinite;
+}
+
+@keyframes blink {
+  50% { opacity:0; }
 }
