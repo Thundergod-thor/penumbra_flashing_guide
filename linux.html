@@ -5,38 +5,68 @@ layout: none
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Linux Usage – Penumbra</title>
+<title>Linux Usage – Penumbra Toolkit</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Linux usage guide for Penumbra Toolkit – MediaTek unbrick, IMEI backup and recovery using antumbra.">
+<meta property="og:title" content="Penumbra Toolkit – Linux Usage">
+<meta property="og:description" content="Advanced MediaTek recovery and flashing guide for Linux users.">
+<meta property="og:type" content="website">
+
 <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
+
 <div id="cursor-glow"></div>
 <div class="toggle" id="themeToggle">🌗 theme</div>
 
+<div class="navbar">
+  <div class="inner">
+    <strong>Penumbra</strong>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="windows.html">Windows</a>
+      <a href="linux.html">Linux</a>
+    </div>
+  </div>
+</div>
+
 <div class="container">
 
-<a href="index.html">← Back</a>
-
 <h1>Linux Usage</h1>
+<p class="subtitle">Advanced MediaTek recovery workflow for Linux systems.</p>
 
 <h2>Make Scripts Executable</h2>
-<pre>chmod +x *.sh bin/antumbra</pre>
+<div class="copy-wrap">
+  <pre>chmod +x *.sh bin/antumbra</pre>
+  <button class="copy-btn">Copy</button>
+</div>
 
-<h2>IMEI Backup (Recommended)</h2>
-<pre>./imei-backup.sh</pre>
+<h2>IMEI Backup (RECOMMENDED)</h2>
+<div class="copy-wrap">
+  <pre>./imei-backup.sh</pre>
+  <button class="copy-btn">Copy</button>
+</div>
 
 <h2>Full Unbrick / Flash</h2>
-<pre>./unbrickscript.sh</pre>
+<div class="copy-wrap">
+  <pre>./unbrickscript.sh</pre>
+  <button class="copy-btn">Copy</button>
+</div>
 
 <h2>IMEI Restore (Optional)</h2>
-<pre>./imei-restore.sh</pre>
+<div class="copy-wrap">
+  <pre>./imei-restore.sh</pre>
+  <button class="copy-btn">Copy</button>
+</div>
 
 <footer>
-  <p>No drivers required on Linux.</p>
+  <p>No drivers required on Linux. Run with <code>sudo</code> if the device is not detected.</p>
 </footer>
 
 </div>
+
 <script src="assets/app.js"></script>
 </body>
 </html>
