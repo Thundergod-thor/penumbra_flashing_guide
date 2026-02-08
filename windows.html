@@ -5,40 +5,95 @@ layout: none
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Windows Usage – Penumbra</title>
+<title>Windows Usage – Penumbra Toolkit</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Windows usage guide for Penumbra Toolkit – MediaTek unbrick, IMEI backup and flashing using antumbra.">
+<meta property="og:title" content="Penumbra Toolkit – Windows Usage">
+<meta property="og:description" content="Advanced MediaTek recovery and flashing guide for Windows users.">
+<meta property="og:type" content="website">
+
 <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
+
 <div id="cursor-glow"></div>
 <div class="toggle" id="themeToggle">🌗 theme</div>
 
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="inner">
+    <strong>Penumbra</strong>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="windows.html">Windows</a>
+      <a href="linux.html">Linux</a>
+    </div>
+  </div>
+</div>
+
 <div class="container">
 
-<a href="index.html">← Back</a>
-
 <h1>Windows Usage</h1>
+<p class="subtitle">
+Advanced MediaTek recovery workflow for <strong>Windows</strong> systems.
+</p>
 
 <h2>Driver Installation (MANDATORY)</h2>
+
+<p>
+Before running any Penumbra script on Windows, you <strong>must</strong> install the USB driver.
+</p>
+
 <pre>Run: PenumbraDrivers.exe</pre>
 
-<p>Select <strong>libusb</strong> and install. Reboot recommended.</p>
+<ul>
+  <li>Select <strong>libusb</strong></li>
+  <li>Click Install</li>
+  <li>Reboot recommended</li>
+</ul>
 
-<h2>IMEI Backup (Recommended)</h2>
+<p>
+If this step is skipped, antumbra will remain stuck at:
+</p>
+
+<pre>Waiting for MTK device…</pre>
+
+<h2>IMEI Backup (RECOMMENDED FIRST)</h2>
+
 <pre>imei-backup.bat</pre>
 
+<p>
+This backs up critical radio and identity partitions. Always do this before flashing firmware.
+</p>
+
 <h2>Full Unbrick / Flash</h2>
+
 <pre>unbrickscript.bat</pre>
 
-<h2>IMEI Restore (Optional)</h2>
+<ul>
+  <li>Flashes all required A/B firmware partitions</li>
+  <li>Flashes <code>super.img</code> last</li>
+  <li>Does <strong>NOT</strong> flash preloader</li>
+</ul>
+
+<h2>IMEI Restore (Optional - run only if network/modem dies or imei is lost)</h2>
+
 <pre>imei-restore.bat</pre>
 
+<p>
+⚠️ Restore <strong>only</strong> IMEI backups made from the same device.
+</p>
+
 <footer>
-  <p>Restore IMEI only from the same device.</p>
+  <p>
+    Incorrect IMEI restore can permanently break network connectivity.
+  </p>
 </footer>
 
 </div>
+
 <script src="assets/app.js"></script>
 </body>
 </html>
