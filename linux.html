@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Penumbra Toolkit – Linux Usage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg:#0b0f14; --fg:#e6edf3; --muted:#9aa4ad;
+      --accent:#4ea1ff; --card:#121821; --border:#1f2630;
+    }
+    body {
+      margin:0; background:linear-gradient(180deg,#0b0f14,#0d1117);
+      color:var(--fg);
+      font-family:ui-monospace,monospace;
+      line-height:1.7;
+    }
+    .container { max-width:960px; margin:auto; padding:4rem 1.5rem; }
+    h1 { font-size:2.4rem; margin-bottom:1rem; }
+    h2 { margin-top:3rem; }
+    p { color:var(--muted); }
+    pre {
+      background:var(--card);
+      border:1px solid var(--border);
+      padding:1rem; border-radius:8px;
+      overflow-x:auto;
+    }
+    .back { margin-bottom:2rem; display:inline-block; }
+    hr { border:none; border-top:1px solid var(--border); margin:3rem 0; }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+<a class="back" href="index.html">← Back to Home</a>
+
+<h1>Linux Usage Guide</h1>
+<p>Instructions for using the Penumbra Toolkit on <strong>Linux</strong>.</p>
+
+<hr>
+
+<h2>1. Requirements</h2>
+<ul>
+  <li>Native <strong>antumbra</strong> Linux binary</li>
+  <li><code>da.bin</code> in <code>bin/</code></li>
+  <li>udev permissions</li>
+</ul>
+
+<p>No driver installation required.</p>
+
+<hr>
+
+<h2>2. Make Scripts Executable</h2>
+
+<pre>chmod +x *.sh bin/antumbra</pre>
+
+<hr>
+
+<h2>3. IMEI Backup (RECOMMENDED FIRST)</h2>
+
+<pre>./imei-backup.sh</pre>
+
+<hr>
+
+<h2>4. Full Unbrick / Flash</h2>
+
+<pre>./unbrickscript.sh</pre>
+
+<ul>
+  <li>A/B partitions flashed</li>
+  <li><code>super.img</code> last</li>
+  <li>No preloader flashing</li>
+</ul>
+
+<p>Run with <code>sudo</code> if device is not detected.</p>
+
+<hr>
+
+<h2>5. IMEI Restore (Optional)</h2>
+
+<pre>./imei-restore.sh</pre>
+
+<p><strong>Restore only from the same device.</strong></p>
+
+</div>
+</body>
+</html>
