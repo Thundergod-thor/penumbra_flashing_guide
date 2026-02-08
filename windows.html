@@ -1,104 +1,44 @@
+---
+layout: none
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Penumbra Toolkit – Windows Usage</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    :root {
-      --bg:#0b0f14; --fg:#e6edf3; --muted:#9aa4ad;
-      --accent:#4ea1ff; --card:#121821; --border:#1f2630;
-    }
-    body {
-      margin:0; background:linear-gradient(180deg,#0b0f14,#0d1117);
-      color:var(--fg);
-      font-family:ui-monospace,monospace;
-      line-height:1.7;
-    }
-    .container { max-width:960px; margin:auto; padding:4rem 1.5rem; }
-    h1 { font-size:2.4rem; margin-bottom:1rem; }
-    h2 { margin-top:3rem; }
-    p { color:var(--muted); }
-    pre {
-      background:var(--card);
-      border:1px solid var(--border);
-      padding:1rem; border-radius:8px;
-      overflow-x:auto;
-    }
-    .back { margin-bottom:2rem; display:inline-block; }
-    hr { border:none; border-top:1px solid var(--border); margin:3rem 0; }
-  </style>
+<meta charset="utf-8">
+<title>Windows Usage – Penumbra</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
+<div id="cursor-glow"></div>
+<div class="toggle" id="themeToggle">🌗 theme</div>
+
 <div class="container">
 
-<a class="back" href="index.html">← Back to Home</a>
+<a href="index.html">← Back</a>
 
-<h1>Windows Usage Guide</h1>
-<p>Instructions for using the Penumbra Toolkit on <strong>Windows</strong>.</p>
+<h1>Windows Usage</h1>
 
-<hr>
-
-<h2>1. Install USB Driver (MANDATORY)</h2>
-<p>Before running any script, install the Penumbra USB driver.</p>
-
+<h2>Driver Installation (MANDATORY)</h2>
 <pre>Run: PenumbraDrivers.exe</pre>
 
-<ul>
-  <li>Select <strong>libusb</strong></li>
-  <li>Click Install</li>
-  <li>Reboot recommended</li>
-</ul>
+<p>Select <strong>libusb</strong> and install. Reboot recommended.</p>
 
-<p><strong>If skipped:</strong> antumbra will show <code>Waiting for MTK device…</code></p>
-
-<hr>
-
-<h2>2. Folder Structure (DO NOT CHANGE)</h2>
-
-<pre>
-Penumbra\
-├── bin\
-│   ├── antumbra.exe
-│   └── da.bin
-├── FIRMWARE\
-│   └── *.img
-├── imei-backup.bat
-├── imei-restore.bat
-├── unbrickscript.bat
-└── PenumbraDrivers.exe
-</pre>
-
-<hr>
-
-<h2>3. IMEI Backup (RECOMMENDED FIRST)</h2>
-
+<h2>IMEI Backup (Recommended)</h2>
 <pre>imei-backup.bat</pre>
 
-<p>Backs up IMEI and radio calibration data.</p>
-
-<hr>
-
-<h2>4. Full Unbrick / Flash</h2>
-
+<h2>Full Unbrick / Flash</h2>
 <pre>unbrickscript.bat</pre>
 
-<ul>
-  <li>Flashes all A/B partitions</li>
-  <li>Flashes <code>super.img</code> last</li>
-  <li>No preloader flashing</li>
-</ul>
-
-<hr>
-
-<h2>5. IMEI Restore (Optional)</h2>
-
+<h2>IMEI Restore (Optional)</h2>
 <pre>imei-restore.bat</pre>
 
-<p><strong>Restore only from the same device.</strong></p>
+<footer>
+  <p>Restore IMEI only from the same device.</p>
+</footer>
 
 </div>
+<script src="assets/app.js"></script>
 </body>
 </html>
