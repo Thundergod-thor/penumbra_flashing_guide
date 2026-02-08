@@ -1,7 +1,6 @@
 # Penumbra Toolkit
 
 A cross-platform **MediaTek flashing, unbrick, and IMEI backup toolkit**
-built around **antumbra**.
 
 This toolkit is intended for **advanced users**, developers, and device
 recovery scenarios.
@@ -28,8 +27,8 @@ recovery scenarios.
 
 ## Documentation
 
-- 👉 **[Usage Guide (Windows & Linux)](usage.md)**
-- 👉 **[Warnings & Safety](warnings.md)**
+- 👉 **[Usage Guide (Windows)](windows.md)**
+- 👉 **[Usage Guide (Linux)](linux.md)**
 
 ---
 
