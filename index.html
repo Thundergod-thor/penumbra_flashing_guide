@@ -1,209 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Penumbra Toolkit</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    :root {
-      --bg: #0b0f14;
-      --fg: #e6edf3;
-      --muted: #9aa4ad;
-      --accent: #4ea1ff;
-      --card: #121821;
-      --border: #1f2630;
-    }
+<meta charset="utf-8">
+<title>Penumbra Toolkit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    * {
-      box-sizing: border-box;
-    }
+<style>
+:root {
+  --bg:#070b10;
+  --fg:#e6edf3;
+  --muted:#8b949e;
+  --accent:#3fa9ff;
+  --neon:#00ffe1;
+  --card:#0e141b;
+  --border:#1c2633;
+}
 
-    body {
-      margin: 0;
-      background: linear-gradient(180deg, #0b0f14, #0d1117);
-      color: var(--fg);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas,
-                   "Liberation Mono", monospace;
-      line-height: 1.7;
-    }
+* { box-sizing:border-box; }
 
-    .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 4rem 1.5rem;
-    }
+body {
+  margin:0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(0,255,225,.05), transparent 40%),
+    linear-gradient(180deg,#070b10,#0b1118);
+  color:var(--fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  line-height:1.7;
+  overflow-x:hidden;
+}
 
-    header {
-      margin-bottom: 4rem;
-    }
+/* subtle scanline effect */
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.015),
+    rgba(255,255,255,0.015) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events:none;
+  opacity:.25;
+}
 
-    .title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
+.container {
+  max-width:960px;
+  margin:auto;
+  padding:4rem 1.5rem;
+}
 
-    .subtitle {
-      margin-top: 1rem;
-      color: var(--muted);
-      max-width: 720px;
-      font-size: 1.05rem;
-    }
+.badges span {
+  display:inline-block;
+  padding:.25rem .6rem;
+  border:1px solid var(--border);
+  border-radius:6px;
+  font-size:.75rem;
+  margin-right:.4rem;
+  color:var(--muted);
+}
 
-    .divider {
-      margin: 3rem 0;
-      border: none;
-      border-top: 1px solid var(--border);
-    }
+h1 {
+  font-size:2.7rem;
+  margin:1.5rem 0 .5rem;
+  text-shadow: 0 0 10px rgba(0,255,225,.15);
+}
 
-    h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
+.subtitle {
+  max-width:720px;
+  color:var(--muted);
+}
 
-    ul {
-      padding-left: 1.4rem;
-    }
+hr {
+  border:none;
+  border-top:1px solid var(--border);
+  margin:3.5rem 0;
+}
 
-    li {
-      margin: 0.5rem 0;
-    }
+h2 {
+  font-size:1.6rem;
+  margin-bottom:1rem;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
+ul { padding-left:1.3rem; }
+li { margin:.5rem 0; }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.6rem;
-      transition: transform 0.15s ease, border-color 0.15s ease;
-    }
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.4rem;
+}
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-    }
+.card {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:1.6rem;
+  position:relative;
+  transition:transform .15s ease,border-color .15s ease;
+}
 
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 0.6rem;
-    }
+.card::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  box-shadow:0 0 0 0 rgba(0,255,225,.15);
+  transition:.2s;
+  pointer-events:none;
+}
 
-    .card p {
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-    }
+.card:hover {
+  transform:translateY(-4px);
+  border-color:var(--neon);
+}
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
+.card:hover::after {
+  box-shadow:0 0 18px rgba(0,255,225,.15);
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+.card p { color:var(--muted); }
 
-    footer {
-      margin-top: 5rem;
-      color: var(--muted);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border);
-      padding-top: 2rem;
-    }
+a {
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:600;
+}
 
-    .badge {
-      display: inline-block;
-      padding: 0.25rem 0.6rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-right: 0.4rem;
-    }
+a:hover { text-decoration:underline; }
 
-    @media (max-width: 600px) {
-      .title {
-        font-size: 2.2rem;
-      }
-    }
-  </style>
+footer {
+  margin-top:5rem;
+  padding-top:2rem;
+  border-top:1px solid var(--border);
+  color:var(--muted);
+  font-size:.85rem;
+}
+
+/* blinking cursor */
+.cursor::after {
+  content:"_";
+  animation:blink 1.2s infinite;
+}
+@keyframes blink {
+  50% { opacity:0; }
+}
+
+@media(max-width:600px){
+  h1 { font-size:2.2rem; }
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <header>
-      <div class="badge">MediaTek</div>
-      <div class="badge">Recovery</div>
-      <div class="badge">Advanced</div>
+<div class="badges">
+  <span>MediaTek</span>
+  <span>Recovery</span>
+  <span>Advanced</span>
+</div>
 
-      <h1 class="title">Penumbra Toolkit</h1>
+<h1 class="cursor">Penumbra Toolkit</h1>
 
-      <p class="subtitle">
-        A cross-platform <strong>MediaTek flashing, unbrick, and IMEI backup toolkit</strong>
-        built around <em>antumbra</em>, designed for advanced users and device
-        recovery scenarios.
-      </p>
-    </header>
+<p class="subtitle">
+A cross-platform <strong>MediaTek flashing, unbrick, and IMEI backup toolkit</strong>
+built around <em>antumbra</em>, designed for advanced users and device recovery scenarios.
+</p>
 
-    <hr class="divider">
+<hr>
 
-    <section>
-      <h2>Features</h2>
-      <ul>
-        <li>Full RUI 5 unbrick and stock firmware restore</li>
-        <li>Safe IMEI backup and restore workflow</li>
-        <li>Windows and Linux support</li>
-        <li>Deterministic flashing order</li>
-        <li>No preloader flashing</li>
-        <li>Service-grade, transparent scripts</li>
-      </ul>
-    </section>
+<h2>Features</h2>
+<ul>
+  <li>Full RUI 5 unbrick and stock firmware restore</li>
+  <li>Safe IMEI backup and restore workflow</li>
+  <li>Windows and Linux support</li>
+  <li>Deterministic flashing order</li>
+  <li>No preloader flashing</li>
+  <li>Service-grade, transparent scripts</li>
+</ul>
 
-    <hr class="divider">
+<hr>
 
-    <section>
-      <h2>Documentation</h2>
+<h2>Documentation</h2>
+<div class="cards">
 
-      <div class="grid">
-        <div class="card">
-          <h3>Windows Usage</h3>
-          <p>
-            Driver installation, IMEI backup and restore, and full unbrick
-            instructions for Windows users.
-          </p>
-          <a href="windows.html">Open Windows Guide →</a>
-        </div>
-
-        <div class="card">
-          <h3>Linux Usage</h3>
-          <p>
-            Native antumbra workflow, permissions setup, and recovery
-            instructions for Linux systems.
-          </p>
-          <a href="linux.html">Open Linux Guide →</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>
-        This project is provided for <strong>educational and recovery purposes only</strong>.
-        Flashing firmware and modifying partitions carries inherent risk.
-        You are fully responsible for how you use these tools.
-      </p>
-
-      <p>
-        © Penumbra Toolkit — Advanced MediaTek recovery documentation
-      </p>
-    </footer>
-
+  <div class="card">
+    <h3>Windows Usage</h3>
+    <p>
+      Driver installation, IMEI backup & restore,
+      and full unbrick instructions for Windows.
+    </p>
+    <a href="windows.html">Open Windows Guide →</a>
   </div>
+
+  <div class="card">
+    <h3>Linux Usage</h3>
+    <p>
+      Native antumbra workflow, permissions,
+      and recovery instructions for Linux.
+    </p>
+    <a href="linux.html">Open Linux Guide →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    This project is provided for <strong>educational and recovery purposes only</strong>.
+    Flashing firmware and modifying partitions carries inherent risk.
+  </p>
+  <p>© Penumbra Toolkit — Advanced MediaTek Recovery</p>
+</footer>
+
+</div>
 </body>
 </html>
